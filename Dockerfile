@@ -6,6 +6,4 @@ RUN pip install -r /requirements.txt
 COPY . /app
 WORKDIR /app
 
-ENTRYPOINT [ "python" ]
-
-CMD [ "main.py" ]
+CMD [ "gunicorn", "-b", "0.0.0.0:5000", "main:app" ]
